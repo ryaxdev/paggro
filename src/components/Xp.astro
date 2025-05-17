@@ -1,0 +1,46 @@
+---
+import XpItem from "./XpItem.astro"
+
+const EXPERIENCE = [
+  {
+    title: "Sitios Web Modernos",
+    description: "Landing pages, sitios corporativos o personales con diseño atractivo, responsivo y rápido.",
+    tags: ["REACT", "VUE", "ASTRO", "TAILWIND"] as const,
+    date: "Septiembre 2021 - Presente"
+  },
+  {
+    title: "Aplicaciones móviles",
+    description: "Apps para iOS y Android usando tecnologías modernas como Flutter, React Native, Expo, etc.",
+    tags: ["EXPO", "REACT", "FLUTTER", "KOTLIN", "SWIFTUI"] as const,
+    date: "Julio 2022 - Presente"
+  },
+  {
+    title: "Tiendas Online",
+    description: "E-commerce con pasarela de pagos, carrito y panel de administración.",
+    tags: ["NEXT", "TAILWIND", "STRIPE", "FIREBASE", "VERCEL", "MONGODB"] as const,
+    date: "Enero 2023 - Presente"
+  },
+  {
+    title: "Dashboard y Sistemas internos",
+    description: "Sistemas a medida para gestionar tu negocio, empleados o clientes.",
+    tags: ["REACT", "NEXT", "FIREBASE", "SUPABASE", "NODE", "PRISMA"] as const,
+    date: "Marzo 2023 - Presente"
+  }
+]as const;
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
+    {
+        EXPERIENCE.map(experience => (
+            <li class="mb-10 ms-4">
+                <XpItem
+                  title={experience.title}
+                  description={experience.description}
+                  tags={experience.tags}
+                  date={experience.date}
+                />
+            </li>
+        ) )
+    }                  
+</ol>
+

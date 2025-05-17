@@ -1,0 +1,147 @@
+---
+import AstroIcon from "./icons/AstroIcon.astro";
+import Firebase from "./icons/Firebase.astro";
+import MongoDB from "./icons/MongoDB.astro";
+import NextJS from "./icons/NextJS.astro";
+import Prisma from "./icons/Prisma.astro";
+import React from "./icons/React.astro";
+import Stripe from "./icons/Stripe.astro";
+import Supabase from "./icons/Supabase.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Vercel from "./icons/Vercel.astro";
+import Vue from "./icons/Vue.astro";
+import Node from "./icons/Node.astro";
+import SwiftUI from "./icons/SwiftUI.astro";
+import Flutter from "./icons/Flutter.astro";
+import Kotlin from "./icons/Kotlin.astro";
+import Expo from "./icons/Expo.astro";
+
+// Definir el tipo de las props
+interface Props {
+    title: string;
+    description: string;
+    date?: string;
+    tags?: readonly (keyof typeof TAGS)[];// tags es un array de claves válidas de TAGS
+}
+
+const { title, description, tags } = Astro.props;
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: NextJS,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-[#73bcf6]",
+        icon: Tailwind,
+    },
+    VERCEL: {
+        name: "Vercel SDK",
+        class: "bg-black text-white",
+        icon: Vercel,
+    },
+    STRIPE: {
+        name: "Stripe",
+        class: "bg-black text-white",
+        icon: Stripe,
+    },
+    FIREBASE: {
+    name: "Firebase",
+    class: "bg-[#121212] text-[#ffcb2b]",
+    icon: Firebase,
+  },
+    SUPABASE: {
+        name: "Supabase",
+        class: "bg-black text-white",
+        icon: Supabase,
+    },
+    MONGODB: {
+        name: "MongoDB",
+        class: "bg-black text-white",
+        icon: MongoDB,
+    },
+    PRISMA: {
+        name: "Prisma",
+        class: "bg-black text-white",
+        icon: Prisma,
+    },
+    REACT: {
+        name: "React",
+        class: "bg-[#1f1f1f] text-[#61dafb]",
+        icon: React,
+    },
+    VUE: {
+        name: "Vue.js",
+        class: "bg-[#35495E] text-[#42b883]",
+        icon: Vue,
+    },
+    ASTRO: {
+        name: "Astro",
+        class: "bg-[#1e1e2f] text-[#fff]",
+        icon: AstroIcon,
+    },
+    NODE: {
+        name: "Node.js",
+        class: "bg-[#2C2C2C] text-[#8cc84b]",
+        icon: Node,
+    },
+    EXPO: {
+        name: "Expo",
+        class: "bg-[#000020] text-white",
+        icon: Expo,
+    },
+    KOTLIN: {
+        name: "Kotlin",
+        class: "bg-[#7f52ff] text-white",
+        icon: Kotlin,
+    },
+    SWIFTUI: {
+        name: "Swift UI",
+        class: "bg-[#f05138] text-white",
+        icon: SwiftUI,
+    },
+    FLUTTER: {
+        name: "Flutter",
+        class: "bg-[#02569B] text-[#42a5f5]",
+        icon: Flutter,
+    } 
+    }
+
+
+// Asegurarse de que TAGS tenga el tipo correcto para su uso posterior
+const typedTAGS: typeof TAGS = TAGS;
+
+---
+
+<div class="timeline-item relative pl-6 pb-12 group">
+  <div class="absolute w-4 h-4 bg-sky-500 rounded-full mt-1.5 -start-2 border-2 border-gray-900 shadow-md transition-all duration-300 group-hover:scale-125 group-hover:bg-sky-400/90"></div>
+  
+  <div class="timeline-content bg-[#0A0A0C]/70 backdrop-blur-sm p-5 rounded-lg border border-gray-800/80 shadow-lg transition-all duration-300 hover:transform hover:translate-x-1">
+    <time class="mb-2 text-sm font-medium text-sky-400 flex items-center">
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags && tags.map((tagKey) => {
+            const tag = typedTAGS[tagKey]; // Acceder al objeto tag usando la clave
+            if (!tag) return null; // Manejar caso si la clave no existe (aunque con el tipo debería ser raro)
+            const Icon = tag.icon; // Obtener el componente del icono
+            return (
+                <li>
+                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                        <Icon class="size-4" /> {/* Usar el componente del icono */}
+                        {tag.name}
+                    </span>
+                </li>
+            );
+        })}
+      </ul>
+    </time>
+    
+    <h3 class="text-xl font-bold text-sky-300/90 mt-2 mb-3 group-hover:text-sky-200/90">{title}</h3>
+    
+    <p class="mb-4 font-normal text-gray-300 text-pretty leading-relaxed">{description}</p>
+    
+
+
+  </div>
+</div>

@@ -1,0 +1,133 @@
+---
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Vercel from "./icons/Vercel.astro";
+import React from "./icons/React.astro";
+import Vue from "./icons/Vue.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import Node from "./icons/Node.astro";
+import Firebase from "./icons/Firebase.astro";
+import Flutter from "./icons/Flutter.astro";
+import Expo from "./icons/Expo.astro";
+import Kotlin from "./icons/Kotlin.astro";
+import SwiftUI from "./icons/SwiftUI.astro";
+import Figma from "./icons/Figma.astro";
+
+const { title, description, link } = Astro.props;
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-[#73bcf6]",
+    icon: Tailwind,
+  },
+  VERCEL: {
+    name: "Vercel",
+    class: "bg-black text-white",
+    icon: Vercel,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#1f1f1f] text-[#61dafb]",
+    icon: React,
+  },
+  VUE: {
+    name: "Vue.js",
+    class: "bg-[#35495E] text-[#42b883]",
+    icon: Vue,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#1e1e2f] text-[#fff]",
+    icon: AstroIcon,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-[#2C2C2C] text-[#8cc84b]",
+    icon: Node,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "bg-[#121212] text-[#ffcb2b]",
+    icon: Firebase,
+  },
+  FLUTTER: {
+    name: "Flutter",
+    class: "bg-[#02569B] text-[#42a5f5]",
+    icon: Flutter,
+  },
+  EXPO: {
+    name: "Expo",
+    class: "bg-[#000020] text-white",
+    icon: Expo,
+  },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "bg-[#7f52ff] text-white",
+    icon: Kotlin,
+  },
+  SWIFTUI: {
+    name: "Swift UI",
+    class: "bg-[#f05138] text-white",
+    icon: SwiftUI,
+  },
+  FIGMA: {
+    name: "Figma",
+    class: "bg-[#0d1117] text-[#a259ff]",
+    icon: Figma,
+  },
+};
+
+const STACKS = [
+  {
+    title: "Desarrollador Frontend",
+    description: "Dominamos los frameworks más modernos para crear interfaces rápidas, responsivas y escalables.",
+    link: "#",
+    tags: [TAGS.REACT, TAGS.NEXT, TAGS.TAILWIND, TAGS.VUE, TAGS.ASTRO],
+  },
+  {
+    title: "Desarrollador Backend",
+    description: "Creamos APIs robustas y seguras con Node.js, Express y soluciones serverless como Firebase.",
+    link: "#",
+    tags: [TAGS.NODE, TAGS.FIREBASE, TAGS.NEXT],
+  },
+  {
+    title: "Desarrollador Móvil",
+    description: "Aplicaciones móviles multiplataforma con React Native, Flutter y herramientas modernas.",
+    link: "#",
+    tags: [TAGS.REACT, TAGS.EXPO, TAGS.FLUTTER, TAGS.KOTLIN, TAGS.SWIFTUI],
+  },
+  {
+    title: "Diseñador UI/UX",
+    description: "Diseñamos experiencias centradas en el usuario con enfoque en usabilidad y estética.",
+    link: "#",
+    tags: [TAGS.FIGMA, TAGS.TAILWIND],
+  },
+];
+---
+
+{
+    STACKS.map(({title, description, tags}) => (
+        <div class="block max-w-sm p-6 border border-gray-200 rounded-lg shadow-sm  bg-black/20 dark:border-gray-700 ">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+
+            <ul class="flex flex-wrap gap-2 flex-row mb-2">
+                {tags.map(tag => (
+                    <li>
+                        <span class={`inline-flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+
+            <p class="font-normal text-gray-700 dark:text-gray-400">{description}</p>
+        </div>
+    ))
+}

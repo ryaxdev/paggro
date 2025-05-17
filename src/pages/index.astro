@@ -1,11 +1,130 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Badge from '../components/Badge.astro';
+import Card from '../components/Card.astro';
+import Container from '../components/Container.astro';
+import Dollar from '../components/icons/Dollar.astro';
+import Email from '../components/icons/Email.astro';
+import Fb from '../components/icons/Fb.astro';
+import Insta from '../components/icons/Insta.astro';
+import Stack from '../components/icons/Stack.astro';
+import Task from '../components/icons/Task.astro';
+import Wpp from '../components/icons/Wpp.astro';
+import Price from '../components/Price.astro';
+import SocialPill from '../components/SocialPill.astro';
+import Xp from '../components/Xp.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import '../styles/global.css';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Paggro - Desarrollamos Apps y Páginas WEB Modernas +4 años de experiencia."
+	description="Contrata a nuestro equipo de desarrolladores y diseñadores para desarrollar Apps y Páginas WEB Modernas. Nos especializamos en dar la mejor experiencia a nuestros usuarios."
+>
+	<main class="px-4">
+		<Container class="py-44 pb-32"> 
+			 <div class="bg-neutral-950 rounded-full  size-12 mb-4 flex justify-center items-center">
+				<span class="text-3xl">🧑🏻‍💻</span>
+			 </div>
+			
+			 <h1 
+			 class="text-3xl md:text-4xl lg:text-5xl flex-row inline-flex gap-x-4 font-bold pb-6 lg:pb-10 animate-text bg-gradient-to-r 
+			 from-neutral-900 via-slate-500 to-neutral-500 bg-[200%_auto] bg-clip-text text-transparent
+			 leading-tight dark:from-neutral-100 dark:via-slate-400 dark:to-neutral-400"
+		   >
+			 Hey, somos paggro
+			 <a 
+			   href="https://wa.me/528334273620"
+			   class="flex justify-center items-center"
+			   target="_blank"
+			   rel="noopener noreferrer"
+			 >
+			   <Badge>Disponible para desarrollar</Badge>
+			 </a>
+		   </h1>
+			<h2 class="text-xl lg:text-2xl max-w-[700px] leading-relaxed">
+				<span class="font-medium">+4 años de experiencia. </span>
+				<span class="text-yellow-400 dark:text-yellow-300/90 font-medium"> 
+				  Desarrollamos Apps y Páginas WEB Modernas. 
+				</span>
+				<span class="text-red-400 dark:text-red-300/90"> 
+				  Desde Tampico, Tamps 🌴. 
+				</span>
+				<span class="opacity-80"> 
+				  Nos especializamos en ofrecer la mejor experiencia a nuestros usuarios.
+				</span>
+			  </h2>
+			
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill href="https://wa.me/528334273620">
+					<Wpp class="size-4 md:size-6" />
+					Whatsapp
+				</SocialPill>
+				<SocialPill href="https://mail.google.com/mail/?view=cm&fs=1&to=xlyrzz@gmail.com">
+					<Email class="size-4 md:size-6" />
+					xlyrzz@gmail.com
+				</SocialPill>
+				<SocialPill href="https://www.facebook.com/people/Paggro/61576588886265/">
+					<Fb class="size-4 md:size-6" />
+					Facebook
+				</SocialPill>
+				<SocialPill href="https://www.instagram.com/paggro.team?igsh=eW12cnRraDN4ZTU5&utm_source=qr">
+					<Insta class="size-4 md:size-6" />
+					Instagram
+				</SocialPill>
+			</nav>
+		</Container>
+
+		<Container id="experience">
+			<h2 class="text-3xl font-semi-bold mb-6 flex gap-x-3 items-center">
+				<Task class="size-7" />
+				¿Qué podemos crear para ti?
+			</h2>
+			<Xp />
+		</Container>
+
+		<Container id="stacks">
+			<h2 class="text-2xl font-semi-bold mb-6 flex gap-x-3 items-center">
+				<Stack class="size-7" />
+				Trabajamos con herramientas modernas
+			</h2>
+			<p class="py-2 text-pretty text-lg mb-6 flex gap-x-3 items-center">Dominamos las tecnologías más usadas en la industria para asegurar qur tu proyecto sea moderno, escalable y facil de mantener.</p>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			<Card />
+			</div>
+		</Container>
+
+		<Container id="precios">
+			<h2 class="text-2xl font-semi-bold mb-6 flex gap-x-3 items-center">
+				<Dollar class="size-7" />
+				Precios
+			</h2>
+			<p class="py-2 text-pretty text-lg mb-6 flex gap-x-3 items-center text-white/60">Estos precios pueden variar dependiendo de tu proyecto y necesidades.</p>
+				<Price />
+			<!-- Sección para mostrar que haces más cosas como apps -->
+			<div class="text-center mt-14">
+				<h3 class="text-xl font-semibold text-white">¿Buscas una app o un sistema más avanzado?</h3>
+				<p class="text-gray-400 mt-2">También creamos apps móviles, sistemas administrativos y plataformas personalizadas.</p>
+				<a href="https://mail.google.com/mail/?view=cm&fs=1&to=xlyrzz@gmail.com&su=¡Quiero%20contarte%20mi%20idea!&body=Hola,%20me%20gustar%C3%ADa%20desarrollar%20una%20web%20o%20app%20y%20tengo%20una%20idea.%20%C2%BFPodemos%20hablar%20de%20ella%3F" target="_blank" rel="noopener" class="inline-block mt-4 px-6 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition">
+				Cuéntanos tu idea
+				</a>
+			</div>
+			
+			
+		</Container>
+
+		
+	</main>
 </Layout>
+<style>
+	@keyframes text-gradient {
+	  0%, 100% {
+		background-position: 0% 50%;
+	  }
+	  50% {
+		background-position: 100% 50%;
+	  }
+	}
+	
+	.animate-text {
+	  animation: text-gradient 4s ease-in-out infinite;
+	}
+  </style>
